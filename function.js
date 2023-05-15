@@ -18,11 +18,11 @@ async function fetchPostsAndComments() {
     // writeFile("./data/comments.json", commentsData);
     // console.log("Your comments.json file is successfuly created");
 
-    const postsAndComment = posts.map((post) => {
+    const myPostsAndComment = posts.map((post) => {
       post.comments = comments.filter((comment) => comment.postId === post.id);
       return post;
     });
-    const myAllData = JSON.stringify(postsAndComment, null, 2);
+    const myAllData = JSON.stringify(myPostsAndComment, null, 2);
     await writeFile("./data/posts.json", myAllData);
     console.log("Congrats: Your data saved in posts.json");
   } catch (error) {
